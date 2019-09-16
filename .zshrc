@@ -10,9 +10,7 @@ alias ls='ls -Gp'
 alias la='ls -Ap'
 alias ll='ls -hlap'
 alias o='open'
-alias fuck='toilet --font mono9 --filter border --gay "うんうん
-わかるよ
-そのきもち"'
+
 function up () {
     if [ $# -eq 0 ] ; then
         cd ..
@@ -48,15 +46,15 @@ export LANG=ja_JP.UTF-8
 export CLICOLOR=true
 export LSCOLORS='gxfxxxxxcxxxxxxxxxxxxx'
 export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=36;01:cd=33;01:su=31;40;07:sg=36;40;07:tw=32;40;07:ow=33;40;07:'
-export HOMEBREW_GITHUB_API_TOKEN="fe8e1575d49834dfd6afda0aef871964c8005926"
-export EMSDK="/Users/fms_eraser/emsdk"
-export EM_CONFIG="/Users/fms_eraser/.emscripten"
-export BINARYEN_ROOT="/Users/fms_eraser/emsdk/clang/e1.38.6_64bit/binaryen"
-export EMSCRIPTEN="/Users/fms_eraser/emsdk/emscripten/1.38.6"
+
+export EMSDK="$HOME/emsdk"
+export EM_CONFIG="$HOME/.emscripten"
+export BINARYEN_ROOT="$HOME/emsdk/clang/e1.38.6_64bit/binaryen"
+export EMSCRIPTEN="$HOME/emsdk/emscripten/1.38.6"
 export GOPATH="/usr/local/bin"
 export MANPATH="$MANPATH:/opt/local/share/man"
 export FPATH="$FPATH:/usr/local/share/zsh/site-functions:/usr/share/zsh/5.3/functions"
-export PATH="$PATH:/Users/fms_eraser/.cargo/bin:/Users/fms_eraser/emsdk:/Users/fms_eraser/emsdk/clang/e1.38.6_64bit:/Users/fms_eraser/emsdk/node/8.9.1_64bit/bin:/Users/fms_eraser/emsdk/emscripten/1.38.6:/Users/fms_eraser/go/bin:/Users/fms_eraser/.vimpkg/bin:/usr/local/bin:/opt/local/bin:/opt/local/sbin:/usr/local/bin"
+export PATH="$PATH:$HOME/.cargo/bin:$HOME/emsdk:$HOME/emsdk/clang/e1.38.6_64bit:$HOME/emsdk/node/8.9.1_64bit/bin:$HOME/emsdk/emscripten/1.38.6:$HOME/go/bin:$HOME/.vimpkg/bin:/usr/local/bin:/opt/local/bin:/opt/local/sbin:/usr/local/bin"
 
 # enable Ctrl + E, Ctrl + A and more
 bindkey -e
