@@ -1,5 +1,4 @@
 alias vi='vim'
-alias code='open -a Visual\ Studio\ Code.app'
 alias find='find `pwd` -name'
 alias mdfind='mdfind -onlyin . '
 alias mkdir='mkdir -p '
@@ -10,7 +9,7 @@ alias ls='ls -Gp'
 alias la='ls -Ap'
 alias ll='ls -hlap'
 alias o='open'
-
+alias qr='qrencode -t ASCII'
 function up () {
     if [ $# -eq 0 ] ; then
         cd ..
@@ -136,3 +135,5 @@ zplug load
 autoload -U promptinit; promptinit
 prompt pure
 
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
