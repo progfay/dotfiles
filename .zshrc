@@ -14,10 +14,7 @@ function up () {
     if [ $# -eq 0 ] ; then
         cd ..
     else
-        for ((i=0; i < $1; i++))
-        do
-            cd ..
-        done
+        for ((i=0; i < $1; i++)); do cd ..; done
     fi
 }
 
