@@ -88,12 +88,11 @@ module.exports = {
     },
 
     // a list of plugins to fetch and install from npm
-    plugins: [//
-        //
-        'hyper-dark-scrollbar', //
-        'hyper-pane', //
-        "hyper-search", //
-        "hyper-dracula" //
+    plugins: [
+        'hyper-dark-scrollbar',
+        'hyper-pane',
+        "hyper-search",
+        "hyper-dracula"
     ],
 
     // in development, you can create a directory under
