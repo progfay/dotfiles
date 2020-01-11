@@ -99,9 +99,6 @@ setopt rm_star_wait
 # コマンド実行後は右プロンプトを消す
 setopt transient_rprompt
 
-# コマンドのオプションや引数を補完する
-autoload -Uz compinit -u # autoload -Uz compinit && compinit -u
-
 # 補完の表示方法を変更する
 zstyle ':completion:*' completer _complete _match _approximate
 zstyle ':completion:*' group-name ''
@@ -113,24 +110,25 @@ zstyle ':completion:*:default' menu select=2
 zstyle ':completion:*:descriptions' format '%F{yellow}-- %d --%f'
 zstyle ':completion:*:options' description 'yes'
 
-# use zplug
-source ~/.zplug/init.zsh
+## Added by Zplugin's installer
+if [[ ! -d $HOME/.zplugin/bin ]]; then
+    print -P "%F{33}▓▒░ %F{220}Installing Zplugin…%f"
+    command mkdir -p $HOME/.zplugin
+    command git clone https://github.com/zdharma/zplugin $HOME/.zplugin/bin && \
+        print -P "%F{33}▓▒░ %F{34}Installation successful.%F" || \
+        print -P "%F{160}▓▒░ The clone has failed.%F"
+fi
+source "$HOME/.zplugin/bin/zplugin.zsh"
+autoload -Uz _zplugin
+(( ${+_comps} )) && _comps[zplugin]=_zplugin
+### End of Zplugin installer's chunk
 
-# if ! zplug check --verbose; then
-#   printf 'Install? [y/N]: '
-#   if read -q; then
-#     echo; zplug install
-#   fi
-# fi
-
-zplug 'zsh-users/zsh-autosuggestions'
-zplug "zsh-users/zsh-syntax-highlighting"
-zplug "zsh-users/zsh-completions"
-zplug load
-
-# for pure
-autoload -U promptinit; promptinit
-prompt pure
-
+zplugin light 'zsh-users/zsh-autosuggestions'
+zplugin light "zsh-users/zsh-syntax-highlighting"
+zplugin light "zsh-users/zsh-completions"
+zplugin ice pick"async.zsh" src"pure.zsh"
+zplugin light sindresorhus/pure
+autoload -Uz compinit -u
+compinit
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
