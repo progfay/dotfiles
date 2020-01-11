@@ -50,7 +50,7 @@ export EMSCRIPTEN="$HOME/emsdk/emscripten/1.38.6"
 export GOPATH="/usr/local/bin"
 export MANPATH="$MANPATH:/opt/local/share/man"
 export FPATH="$FPATH:/usr/local/share/zsh/site-functions:/usr/share/zsh/5.3/functions"
-export PATH="$PATH:$HOME/.cargo/bin:$HOME/emsdk:$HOME/emsdk/clang/e1.38.6_64bit:$HOME/emsdk/node/8.9.1_64bit/bin:$HOME/emsdk/emscripten/1.38.6:$HOME/go/bin:$HOME/.vimpkg/bin:/usr/local/bin:/opt/local/bin:/opt/local/sbin:/usr/local/bin"
+export PATH="$PATH:$HOME/.cargo/bin:$HOME/emsdk:$HOME/emsdk/clang/e1.38.6_64bit:$HOME/emsdk/node/8.9.1_64bit/bin:$HOME/emsdk/emscripten/1.38.6:$HOME/go/bin:$HOME/.vimpkg/bin:/usr/local/bin:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/local/opt/fzf/bin"
 
 # enable Ctrl + E, Ctrl + A and more
 bindkey -e
@@ -131,4 +131,8 @@ zplugin light sindresorhus/pure
 autoload -Uz compinit -u
 compinit
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# Setup fzf
+# Auto-completion
+[[ $- == *i* ]] && source "/usr/local/opt/fzf/shell/completion.zsh" 2> /dev/null
+# Key bindings
+source "/usr/local/opt/fzf/shell/key-bindings.zsh"
