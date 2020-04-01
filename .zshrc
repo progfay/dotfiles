@@ -1,15 +1,12 @@
-alias vi='vim'
-alias find='find `pwd` -name'
+alias find='find "`pwd`" -name'
 alias mdfind='mdfind -onlyin . '
 alias mkdir='mkdir -p '
 alias -g C='| pbcopy'
-alias -g L='| less'
 alias cls='clear'
 alias ls='ls -Gp'
 alias la='ls -Ap'
 alias ll='ls -hlap'
 alias o='open'
-alias qr='qrencode -t ASCII'
 function up () {
     if [ $# -eq 0 ] ; then
         cd ..
@@ -18,88 +15,81 @@ function up () {
     fi
 }
 
-# less
-export LESS='-iMR'
-export LESSOPEN='|lessfilter %s'
-
-# 標準エディタを設定する
+# Set default editor
 export EDITOR=vim
 export VISUAL=vim
 export PAGER=less
+export LESS='-iMR'
+export LESSOPEN='|lessfilter %s'
 
-# コマンド履歴を保存するファイルを指定する
+# Set command history file
 export HISTFILE=~/.zhistory
 
-# メモリに保存する履歴の件数を指定する
+# Set size of history
 export HISTSIZE=1000
-
-# ファイルに保存する履歴の件数を指定する
 export SAVEHIST=100000
 
-# 文字コードを設定する
+# Set char code
 export LANG=ja_JP.UTF-8
 
 export CLICOLOR=true
 export LSCOLORS='gxfxxxxxcxxxxxxxxxxxxx'
 export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=36;01:cd=33;01:su=31;40;07:sg=36;40;07:tw=32;40;07:ow=33;40;07:'
 
-export EMSDK="$HOME/emsdk"
-export EM_CONFIG="$HOME/.emscripten"
-export BINARYEN_ROOT="$HOME/emsdk/clang/e1.38.6_64bit/binaryen"
-export EMSCRIPTEN="$HOME/emsdk/emscripten/1.38.6"
 export GOPATH="/usr/local/bin"
 export MANPATH="$MANPATH:/opt/local/share/man"
 export FPATH="$FPATH:/usr/local/share/zsh/site-functions:/usr/share/zsh/5.3/functions"
-export PATH="$PATH:$HOME/.cargo/bin:$HOME/emsdk:$HOME/emsdk/clang/e1.38.6_64bit:$HOME/emsdk/node/8.9.1_64bit/bin:$HOME/emsdk/emscripten/1.38.6:$HOME/go/bin:$HOME/.vimpkg/bin:/usr/local/bin:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/local/opt/fzf/bin"
+export PATH="$PATH:$HOME/.cargo/bin:$HOME/go/bin:$HOME/.vimpkg/bin:/usr/local/bin:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/local/opt/fzf/bin"
 
 # enable Ctrl + E, Ctrl + A and more
 bindkey -e
 
-# 補完候補を一覧で表示する
+# Display list of completions
 setopt auto_list
 
-# 補完キー連打で候補順に自動で補完する
+# Go next completion on press completion key
 setopt auto_menu
 
-# コマンド中の余分なスペースは削除して履歴に記録する
+# Save command to history without extra spaces
 setopt hist_reduce_blanks
 
-# 履歴と重複するコマンドを記録しない
+# Not save duplicated commands with history
 setopt hist_save_no_dups
 
-# ^D でシェルを終了しない
+# Not exit with ^D
 setopt ignore_eof
 
-# 履歴をすぐに追加する（通常はシェル終了時）
+# Save history immediately (by default, on exit shell)
 setopt inc_append_history
 
-# # 以降をコメントとして扱う
+# Treat as comment behind #
 setopt interactive_comments
 
-# ビープを無効にする
+# Disable beep
 setopt no_beep
 setopt no_hist_beep
 setopt no_list_beep
 
-# = 以降も補完する（例：--option=value）
+# complete behind of =
+# (e.g.: --option=value)
 setopt magic_equal_subst
 
-# バックグラウンド処理の状態変化をすぐに通知する
+# Notify changing state of background process
 setopt notify
 
-# 8bit文字を有効にする
+# Enable 8bit chars
 setopt print_eight_bit
 
-# 終了ステータスが0以外の場合にステータスを表示する
+# Display status when exit status is not 0
 setopt print_exit_value
 
-# rm * の前に確認をとる
+# Confirm before "rm *"
 setopt rm_star_wait
 
-# コマンド実行後は右プロンプトを消す
+# Hide right prompt after execute command
 setopt transient_rprompt
 
-# 補完の表示方法を変更する
+# Set options of completions
 zstyle ':completion:*' completer _complete _match _approximate
 zstyle ':completion:*' group-name ''
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
@@ -126,13 +116,19 @@ autoload -Uz _zplugin
 zplugin light 'zsh-users/zsh-autosuggestions'
 zplugin light "zsh-users/zsh-syntax-highlighting"
 zplugin light "zsh-users/zsh-completions"
+
+# Setup sindresorhus/pure
 zplugin ice pick"async.zsh" src"pure.zsh"
 zplugin light sindresorhus/pure
-autoload -Uz compinit -u
-compinit
+autoload -Uz compinit -u; compinit
 
 # Setup fzf
 # Auto-completion
 [[ $- == *i* ]] && source "/usr/local/opt/fzf/shell/completion.zsh" 2> /dev/null
 # Key bindings
 source "/usr/local/opt/fzf/shell/key-bindings.zsh"
+
+# pyenv
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi

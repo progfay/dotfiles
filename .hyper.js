@@ -35,6 +35,8 @@ module.exports = {
         // custom padding (css format, i.e.: `top right bottom left`)
         padding: '12px 14px',
 
+        shell: '/bin/zsh',
+
         // for setting shell arguments (i.e. for using interactive shellArgs: ['-i'])
         // by default ['--login'] will be used
         shellArgs: ['--login'],
@@ -88,12 +90,7 @@ module.exports = {
     },
 
     // a list of plugins to fetch and install from npm
-    plugins: [
-        'hyper-dark-scrollbar',
-        'hyper-pane',
-        "hyper-search",
-        "hyper-dracula"
-    ],
+    plugins: ['hyper-dark-scrollbar', 'hyper-pane', "hyper-search", "hyper-dracula"],
 
     // in development, you can create a directory under
     // `~/.hyper_plugins/local/` and include it here
