@@ -1,0 +1,48 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find:*)",
+      "Bash(grep:*)",
+      "Bash(gh api:*)",
+      "Bash(npm show:*)",
+      "Bash(echo:*)"
+    ],
+    "ask": ["Bash(npm install:*)", "Bash(gh api * --method POST *)"]
+  },
+  "enabledPlugins": {
+    "discord@claude-plugins-official": true,
+    "feature-dev@claude-plugins-official": true,
+    "skill-creator@claude-plugins-official": true
+  },
+  "extraKnownMarketplaces": {
+    "claude-plugins-official": {
+      "source": {
+        "source": "github",
+        "repo": "anthropics/claude-plugins-official"
+      }
+    }
+  },
+  "hooks": {
+    "Notification": [
+      {
+        "matcher": "permission_prompt|idle_prompt",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "open -g 'raycast://extensions/raycast/raycast/confetti?emojis=🔔'"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "open -g 'raycast://extensions/raycast/raycast/confetti?emojis=✅'"
+          }
+        ]
+      }
+    ]
+  }
+}

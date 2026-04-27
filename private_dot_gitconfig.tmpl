@@ -1,0 +1,39 @@
+[user]
+	name = {{ .git.user.name }}
+	email = {{ .git.user.email }}
+	signingkey = {{ .git.user.signingKey }}
+[color]
+	ui = true
+[color "grep"]
+	match = cyan
+	linenumber = bold white
+	filename = yellow
+[core]
+	editor = vim
+[diff]
+	indentHeuristic = true
+[grep]
+	lineNumber = true
+[alias]
+	gre = "!git -c submodule.recurse=false grep --heading --break --untracked"
+	pushup = "!gh pr create -w"
+	sw = "!f(){ if [[ \"$1\" == '-' ]]; then git switch -; else git switch $(git branch | fzf -e -0 -1 -q \"$1\" || echo \"$1\"); fi }; f"
+	lock = update-index --skip-worktree
+	locked = "!f(){ git ls-files -v | grep ^S | sed -e 's|S ||'; }; f;"
+	unlock = update-index --no-skip-worktree
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[pull]
+	rebase = true
+	ff = only
+[gpg]
+	format = ssh
+[gpg "ssh"]
+	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
+[commit]
+	gpgsign = true
+[fetch]
+	prune = true

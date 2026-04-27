@@ -1,0 +1,7 @@
+--theme="Dracula"
+--paging="always"
+--pager="less --RAW-CONTROL-CHARS --quit-if-one-screen --mouse"
+--binary="as-text"
+--nonprintable-notation="unicode"
+--style="rule"
+--wrap="never"

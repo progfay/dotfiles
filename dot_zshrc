@@ -1,0 +1,70 @@
+export CLICOLOR=true
+export GPG_TTY=$(tty)
+export LSCOLORS='gxfxxxxxcxxxxxxxxxxxxx'
+export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=36;01:cd=33;01:su=31;40;07:sg=36;40;07:tw=32;40;07:ow=33;40;07:'
+
+
+function up() {
+    if [ $# -eq 0 ]; then
+        cd ..
+    else
+        for ((i=0; i < $1; i++)); do cd ..; done
+    fi
+}
+
+alias find='find "`pwd`" -name'
+alias mdfind='mdfind -onlyin . '
+alias -g C='| pbcopy'
+alias ls='ls -Gp'
+alias la='ls -Ap'
+alias ll='ls -hlap'
+
+setopt hist_reduce_blanks
+setopt hist_save_no_dups
+setopt ignore_eof
+setopt inc_append_history
+setopt interactive_comments
+setopt magic_equal_subst
+setopt notify
+setopt print_eight_bit
+setopt print_exit_value
+setopt rm_star_wait
+setopt transient_rprompt
+
+bindkey -e
+
+fpath=(~/.zsh/completion "$(brew --prefix)/share/zsh/site-functions" $fpath)
+autoload -Uz compinit
+compinit -u
+zstyle ':completion:*' completer _complete _match _approximate
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+zstyle ':completion:*' use-cache true
+zstyle ':completion:*' verbose yes
+zstyle ':completion:*:default' menu select=2
+zstyle ':completion:*:descriptions' format '%F{yellow}-- %d --%f'
+zstyle ':completion:*:options' description 'yes'
+
+if [[ ! -d $HOME/.local/share/zinit/zinit.git ]]; then
+    print -P "%F{33}▓▒░ %F{220}Installing Zinit…%f"
+    command sh -c "$(curl -fsSL https://git.io/zinit-install)"
+fi
+source "$HOME/.local/share/zinit/zinit.git/zinit.zsh"
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
+
+zinit ice compile'(pure|async).zsh' pick'async.zsh' src'pure.zsh'
+zinit light 'sindresorhus/pure'
+zinit light 'zdharma-continuum/fast-syntax-highlighting'
+zinit light 'zsh-users/zsh-autosuggestions'
+
+autoload -U promptinit; promptinit
+prompt pure
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+# Vite+
+. "$HOME/.vite-plus/env"

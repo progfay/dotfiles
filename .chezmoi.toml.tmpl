@@ -1,0 +1,8 @@
+{{- $name := promptStringOnce . "git.user.name" "Git user name" -}}
+{{- $email := promptStringOnce . "git.user.email" "Git user email" -}}
+{{- $signingKey := promptStringOnce . "git.user.signingKey" "Git user signing public key" -}}
+
+[data.git.user]
+    name = {{ $name | quote }}
+    email = {{ $email | quote }}
+    signingKey = {{ $signingKey | quote }}
