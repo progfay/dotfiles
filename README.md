@@ -5,7 +5,7 @@ My dotfiles managed with [chezmoi](https://www.chezmoi.io/).
 ## Setup
 
 ```sh
-sh -c "$(curl -fsLS https://get.chezmoi.io)" -- init --apply progfay
+sh -c "$(curl -fsLS https://get.chezmoi.io)" -- init --apply https://github.com/progfay/dotfiles.git
 ```
 
 dotfiles sources are located at: `~/.local/share/chezmoi`
