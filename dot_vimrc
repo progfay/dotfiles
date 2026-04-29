@@ -4,15 +4,16 @@ let g:dracula_colorterm = 0
 colorscheme dracula_pro
 
 set clipboard=unnamed
-set tabstop=2			" width of tab char in screen
-set shiftwidth=2	" width of auto inserted indent
-set softtabstop=2	" width of moving cursor for continuous spaces
-set autoindent		" insert indent on line break
-set smartindent		" change indent by line trail chars
-set hlsearch			" highlight all search results
-set incsearch			" show incremental search results as you type
-set number				" display line number
-set noswapfile		" disable swap file
+set expandtab     " use spaces instead tab
+set tabstop=2     " width of tab char in screen
+set shiftwidth=2  " width of auto inserted indent
+set softtabstop=2 " width of moving cursor for continuous spaces
+set autoindent    " insert indent on line break
+set smartindent   " change indent by line trail chars
+set hlsearch      " highlight all search results
+set incsearch     " show incremental search results as you type
+set number        " display line number
+set noswapfile    " disable swap file
 set re=0          " auto-select regex engine to speed up TypeScript syntax highlighting
 
 autocmd FileType typescript,typescriptreact syntax sync minlines=200 " limit syntax re-parse range
