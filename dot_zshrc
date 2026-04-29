@@ -1,3 +1,23 @@
+export __CF_USER_TEXT_ENCODING="0x$(printf '%x' "$(id -u)"):0x08000100:0x0"
+export LANG=ja_JP.UTF-8
+
+export NPM_CONFIG_PREFIX="$HOME/.npm-global"
+
+path=(
+  $NPM_CONFIG_PREFIX/bin
+  $HOME/.local/bin
+  $path
+)
+
+export EDITOR=vim
+export VISUAL=vim
+export PAGER=less
+export LESS='-iMR'
+
+
+export HISTSIZE=1000
+export SAVEHIST=100000
+
 export CLICOLOR=true
 export GPG_TTY=$(tty)
 export LSCOLORS='gxfxxxxxcxxxxxxxxxxxxx'
@@ -33,6 +53,9 @@ setopt transient_rprompt
 
 bindkey -e
 
+# Homebrew
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 fpath=(~/.zsh/completion "$(brew --prefix)/share/zsh/site-functions" $fpath)
 autoload -Uz compinit
 compinit -u
@@ -66,5 +89,8 @@ prompt pure
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
+typeset -gU cdpath fpath manpath path
+
 # Vite+
 . "$HOME/.vite-plus/env"
+
