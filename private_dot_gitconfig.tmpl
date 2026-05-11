@@ -15,7 +15,7 @@
 [grep]
 	lineNumber = true
 [alias]
-	gre = "!git -c submodule.recurse=false grep --heading --break --untracked"
+  gre = "!f() { cd \"./${GIT_PREFIX}\"; git -c submodule.recurse=false grep --heading --break --untracked \"$@\"; }; f"
 	pushup = "!gh pr create -w"
 	sw = "!f(){ if [[ \"$1\" == '-' ]]; then git switch -; else git switch $(git branch | fzf -e -0 -1 -q \"$1\" || echo \"$1\"); fi }; f"
 	lock = update-index --skip-worktree

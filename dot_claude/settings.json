@@ -3,24 +3,62 @@
     "allow": [
       "Bash(find:*)",
       "Bash(grep:*)",
-      "Bash(gh api:*)",
       "Bash(npm show:*)",
-      "Bash(echo:*)"
+      "Bash(echo:*)",
+      "Bash(ls:*)",
+      "Bash(git log *)",
+      "Bash(git diff *)",
+      "Bash(git show *)",
+      "Bash(git status *)",
+      "Bash(git mv *)",
+      "Bash(git rm *)",
+      "Bash(git grep *)",
+      "Bash(gh pr list *)",
+      "Bash(gh api:*)",
+      "Bash(jq:*)",
+      "Bash(fx:*)"
+
     ],
-    "ask": ["Bash(npm install:*)", "Bash(gh api * --method POST *)"]
-  },
-  "enabledPlugins": {
-    "discord@claude-plugins-official": true,
-    "feature-dev@claude-plugins-official": true,
-    "skill-creator@claude-plugins-official": true
-  },
-  "extraKnownMarketplaces": {
-    "claude-plugins-official": {
-      "source": {
-        "source": "github",
-        "repo": "anthropics/claude-plugins-official"
-      }
-    }
+    "ask": ["Bash(npm install:*)", "Bash(gh api * --method POST *)"],
+    "deny": [
+      "Bash(curl:*)",
+      "Bash(wget:*)",
+      "Bash(rm -rf *)",
+      "Bash(rm -rf /)",
+      "Bash(rm -rf ~*)",
+      "Bash(sudo:*)",
+      "Bash(su:*)",
+      "Bash(dd:*)",
+      "Bash(mkfs:*)",
+      "Bash(fdisk:*)",
+      "Bash(psql:*)",
+      "Bash(mysql:*)",
+      "Bash(mongod:*)",
+      "Bash(redis-cli:*)",
+      "Bash(ssh:*)",
+      "Bash(scp:*)",
+      "Bash(rsync:*)",
+      "Bash(nc:*)",
+      "Bash(telnet:*)",
+      "Bash(aws:*)",
+      "Read(.env)",
+      "Read(.env.*)",
+      "Read(*.pem)",
+      "Read(*.key)",
+      "Read(id_rsa*)",
+      "Read(id_ed25519*)",
+      "Read(*token*)",
+      "Read(*secret*)",
+      "Read(*password*)",
+      "Read(.aws/*)",
+      "Read(.ssh/*)",
+      "Write(.env)",
+      "Write(.env.*)",
+      "Write(*.pem)",
+      "Write(*.key)",
+      "Write(.aws/*)",
+      "Write(.ssh/*)"
+    ]
   },
   "hooks": {
     "Notification": [
