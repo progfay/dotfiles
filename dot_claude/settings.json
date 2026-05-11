@@ -67,7 +67,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "open -g 'raycast://extensions/raycast/raycast/confetti?emojis=🔔'"
+            "command": "open -g 'raycast://confetti?emojis=🔔'"
           }
         ]
       }
@@ -77,7 +77,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "open -g 'raycast://extensions/raycast/raycast/confetti?emojis=✅'"
+            "command": "open -g 'raycast://confetti?emojis=✅'"
           }
         ]
       }
