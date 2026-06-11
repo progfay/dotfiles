@@ -1,5 +1,6 @@
 {
   "permissions": {
+    "defaultMode": "plan",
     "allow": [
       "Bash(find:*)",
       "Bash(grep:*)",
@@ -17,9 +18,7 @@
       "Bash(gh api:*)",
       "Bash(jq:*)",
       "Bash(fx:*)"
-
     ],
-    "ask": ["Bash(npm install:*)", "Bash(gh api * --method POST *)"],
     "deny": [
       "Bash(curl:*)",
       "Bash(wget:*)",
@@ -58,8 +57,13 @@
       "Write(*.key)",
       "Write(.aws/*)",
       "Write(.ssh/*)"
+    ],
+    "ask": [
+      "Bash(npm install:*)",
+      "Bash(gh api * --method POST *)"
     ]
   },
+  "model": "opus",
   "hooks": {
     "Notification": [
       {
@@ -82,5 +86,8 @@
         ]
       }
     ]
-  }
+  },
+  "effortLevel": "high",
+  "remoteControlAtStartup": false,
+  "agentPushNotifEnabled": true
 }
