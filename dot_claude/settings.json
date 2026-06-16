@@ -1,6 +1,6 @@
 {
   "permissions": {
-    "defaultMode": "plan",
+    "defaultMode": "auto",
     "allow": [
       "Bash(find:*)",
       "Bash(grep:*)",
@@ -40,6 +40,9 @@
       "Bash(nc:*)",
       "Bash(telnet:*)",
       "Bash(aws:*)",
+      "Bash(npm install *)",
+      "Bash(pnpm install *)",
+      "Bash(yarn *)",
       "Read(.env)",
       "Read(.env.*)",
       "Read(*.pem)",
