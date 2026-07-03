@@ -1,6 +1,5 @@
 {
   "permissions": {
-    "defaultMode": "auto",
     "allow": [
       "Bash(find:*)",
       "Bash(grep:*)",
@@ -64,9 +63,10 @@
     "ask": [
       "Bash(npm install:*)",
       "Bash(gh api * --method POST *)"
-    ]
+    ],
+    "defaultMode": "auto"
   },
-  "model": "opus",
+  "model": "sonnet",
   "hooks": {
     "Notification": [
       {
@@ -90,7 +90,13 @@
       }
     ]
   },
+  "language": "Japanese",
   "effortLevel": "high",
-  "remoteControlAtStartup": false,
-  "agentPushNotifEnabled": true
+  "awaySummaryEnabled": false,
+  "tui": "fullscreen",
+  "theme": "auto",
+  "editorMode": "normal",
+  "inputNeededNotifEnabled": true,
+  "agentPushNotifEnabled": true,
+  "useAutoModeDuringPlan": true
 }
