@@ -258,35 +258,6 @@
             ]
           },
           {
-            "description": "cmd + shift + j to cmd + l on Browser",
-            "manipulators": [
-              {
-                "conditions": [
-                  {
-                    "bundle_identifiers": [
-                      "^com.google.Chrome",
-                      "^com.brave.Browser",
-                      "^org.mozilla.firefox",
-                      "^com.apple.Safari"
-                    ],
-                    "type": "frontmost_application_if"
-                  }
-                ],
-                "from": {
-                  "key_code": "j",
-                  "modifiers": { "mandatory": ["command", "shift"] }
-                },
-                "to": [
-                  {
-                    "key_code": "l",
-                    "modifiers": ["command"]
-                  }
-                ],
-                "type": "basic"
-              }
-            ]
-          },
-          {
             "description": "alt + jk to cmd + alt + ↑↓ on Browser",
             "manipulators": [
               {
