@@ -205,59 +205,6 @@
             ]
           },
           {
-            "description": "cmd + hl to cmd + ←→ on Browser",
-            "manipulators": [
-              {
-                "conditions": [
-                  {
-                    "bundle_identifiers": [
-                      "^com.google.Chrome",
-                      "^com.brave.Browser",
-                      "^org.mozilla.firefox",
-                      "^com.apple.Safari"
-                    ],
-                    "type": "frontmost_application_if"
-                  }
-                ],
-                "from": {
-                  "key_code": "h",
-                  "modifiers": { "mandatory": ["command"] }
-                },
-                "to": [
-                  {
-                    "key_code": "open_bracket",
-                    "modifiers": ["command"]
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "conditions": [
-                  {
-                    "bundle_identifiers": [
-                      "^com.google.Chrome",
-                      "^com.brave.Browser",
-                      "^org.mozilla.firefox",
-                      "^com.apple.Safari"
-                    ],
-                    "type": "frontmost_application_if"
-                  }
-                ],
-                "from": {
-                  "key_code": "l",
-                  "modifiers": { "mandatory": ["command"] }
-                },
-                "to": [
-                  {
-                    "key_code": "close_bracket",
-                    "modifiers": ["command"]
-                  }
-                ],
-                "type": "basic"
-              }
-            ]
-          },
-          {
             "description": "alt + jk to cmd + alt + ↑↓ on Browser",
             "manipulators": [
               {
