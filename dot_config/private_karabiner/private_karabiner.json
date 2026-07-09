@@ -146,7 +146,16 @@
                 },
                 "to": [{ "key_code": "f19" }],
                 "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "z",
+                  "modifiers": { "mandatory": ["fn"] }
+                },
+                "to": [{ "key_code": "f20" }],
+                "type": "basic"
               }
+
             ]
           },
           {
