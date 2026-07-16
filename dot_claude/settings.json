@@ -53,12 +53,12 @@
       "Read(*password*)",
       "Read(.aws/*)",
       "Read(.ssh/*)",
-      "Write(.env)",
-      "Write(.env.*)",
-      "Write(*.pem)",
-      "Write(*.key)",
-      "Write(.aws/*)",
-      "Write(.ssh/*)"
+      "Edit(.env)",
+      "Edit(.env.*)",
+      "Edit(*.pem)",
+      "Edit(*.key)",
+      "Edit(.aws/*)",
+      "Edit(.ssh/*)"
     ],
     "ask": [
       "Bash(npm install:*)",
@@ -66,7 +66,7 @@
     ],
     "defaultMode": "auto"
   },
-  "model": "sonnet",
+  "model": "claude-fable-5[1m]",
   "hooks": {
     "Notification": [
       {
