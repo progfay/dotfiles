@@ -1,4 +1,46 @@
 {
+  "agentPushNotifEnabled": true,
+  "awaySummaryEnabled": false,
+  "editorMode": "normal",
+  "effortLevel": "high",
+  "hooks": {
+    "Notification": [
+      {
+        "hooks": [
+          {
+            "command": "open -g 'raycast://confetti?emojis=🔔'",
+            "type": "command"
+          }
+        ],
+        "matcher": "permission_prompt|idle_prompt"
+      }
+    ],
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "command": "bash '/Users/progfay/.claude/hooks/herdr-agent-state.sh' session",
+            "timeout": 10,
+            "type": "command"
+          }
+        ],
+        "matcher": "*"
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "command": "open -g 'raycast://confetti?emojis=✅'",
+            "type": "command"
+          }
+        ]
+      }
+    ]
+  },
+  "inputNeededNotifEnabled": true,
+  "language": "Japanese",
+  "model": "claude-fable-5[1m]",
   "permissions": {
     "allow": [
       "Bash(find:*)",
@@ -18,6 +60,11 @@
       "Bash(jq:*)",
       "Bash(fx:*)"
     ],
+    "ask": [
+      "Bash(npm install:*)",
+      "Bash(gh api * --method POST *)"
+    ],
+    "defaultMode": "auto",
     "deny": [
       "Bash(curl:*)",
       "Bash(wget:*)",
@@ -59,44 +106,9 @@
       "Edit(*.key)",
       "Edit(.aws/*)",
       "Edit(.ssh/*)"
-    ],
-    "ask": [
-      "Bash(npm install:*)",
-      "Bash(gh api * --method POST *)"
-    ],
-    "defaultMode": "auto"
-  },
-  "model": "claude-fable-5[1m]",
-  "hooks": {
-    "Notification": [
-      {
-        "matcher": "permission_prompt|idle_prompt",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "open -g 'raycast://confetti?emojis=🔔'"
-          }
-        ]
-      }
-    ],
-    "Stop": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "open -g 'raycast://confetti?emojis=✅'"
-          }
-        ]
-      }
     ]
   },
-  "language": "Japanese",
-  "effortLevel": "high",
-  "awaySummaryEnabled": false,
-  "tui": "fullscreen",
   "theme": "auto",
-  "editorMode": "normal",
-  "inputNeededNotifEnabled": true,
-  "agentPushNotifEnabled": true,
+  "tui": "fullscreen",
   "useAutoModeDuringPlan": true
 }
