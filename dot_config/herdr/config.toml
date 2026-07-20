@@ -1,0 +1,18 @@
+# Herdr configuration
+# Reference: https://herdr.dev/docs/configuration/
+
+onboarding = false
+
+[theme]
+name = "dracula"
+
+[ui]
+agent_panel_sort = "spaces"
+
+[ui.toast]
+delivery = "system"
+
+[experimental]
+switch_ascii_input_source_in_prefix = true
+reveal_hidden_cursor_for_cjk_ime = true
+cjk_ime_agents = ["claude"]
