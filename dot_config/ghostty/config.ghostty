@@ -1,0 +1,61 @@
+theme = dracula-pro
+
+font-family = "FiraCode Nerd Font"
+font-size = 16
+font-style-italic = false
+
+window-padding-x = 10
+window-padding-y = 10
+window-padding-balance = true
+macos-window-buttons = hidden
+macos-option-as-alt = true
+
+# herdr (https://herdr.dev/) にキーを渡すため、Ghostty純正のバインドで
+# 衝突するものだけ unbind する(unbind = 既定アクションを解除し、キー入力をそのまま herdr に渡す)。
+# herdr側の設定は ~/.config/herdr/config.toml を参照。
+
+# herdr: close_pane (Cmd+W) <- Ghostty既定: close_surface
+keybind = super+w=unbind
+# herdr: new_tab (Cmd+T) <- Ghostty既定: new_tab(名前は同じだが herdr 側の tab 実装に渡す必要があるため解除)
+keybind = super+t=unbind
+# herdr: split_vertical (Cmd+D) <- Ghostty既定: new_split:right
+keybind = super+d=unbind
+# herdr: split_horizontal (Cmd+Shift+D) <- Ghostty既定: new_split:down
+keybind = super+shift+d=unbind
+# herdr: zoom (Cmd+Enter) <- Ghostty既定: toggle_fullscreen
+keybind = super+enter=unbind
+# herdr: previous_tab (Cmd+Option+Left) <- Ghostty既定: goto_split:left
+keybind = super+alt+arrow_left=unbind
+# herdr: next_tab (Cmd+Option+Right) <- Ghostty既定: goto_split:right
+keybind = super+alt+arrow_right=unbind
+# herdr: broadcast toggle (Cmd+Option+I) <- Ghostty既定: inspector:toggle
+keybind = super+alt+i=unbind
+
+# herdr: local.focus-pane.focus-1〜9 (Cmd+1〜9) <- Ghostty既定: goto_tab:1〜8 / last_tab
+# 数字キーは Unicode コードポイント(super+1 等)と物理キー(super+digit_1 等)の
+# 両方に既定バインドがあり、物理キーの方が優先度が高いため両方 unbind する。
+keybind = super+1=unbind
+keybind = super+2=unbind
+keybind = super+3=unbind
+keybind = super+4=unbind
+keybind = super+5=unbind
+keybind = super+6=unbind
+keybind = super+7=unbind
+keybind = super+8=unbind
+keybind = super+9=unbind
+keybind = super+digit_1=unbind
+keybind = super+digit_2=unbind
+keybind = super+digit_3=unbind
+keybind = super+digit_4=unbind
+keybind = super+digit_5=unbind
+keybind = super+digit_6=unbind
+keybind = super+digit_7=unbind
+keybind = super+digit_8=unbind
+
+# シェルの代わりに herdr (https://herdr.dev/) を起動する。
+# herdr プロセスが終了(=デタッチ Ctrl+B Q)すると、Ghostty は wait-after-command が
+# デフォルト false のため、ウィンドウを自動で閉じ、pane ごと exit する。
+# GUIアプリ経由(Dock/Spotlight)だと /opt/homebrew/bin が PATH に無く
+# "herdr" が解決できずウィンドウが即終了するため、絶対パスを指定する。
+command = /opt/homebrew/bin/herdr
+

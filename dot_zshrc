@@ -91,5 +91,8 @@ typeset -gU cdpath fpath manpath path
 # Vite+ bin (https://viteplus.dev)
 . "$HOME/.vite-plus/env"
 
+# Claude Code
+export CLAUDE_BASH_MAINTAIN_PROJECT_WORKING_DIR=1
+
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
 

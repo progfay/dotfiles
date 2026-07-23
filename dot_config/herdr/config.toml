@@ -12,6 +12,75 @@ agent_panel_sort = "spaces"
 [ui.toast]
 delivery = "system"
 
+[keys]
+# iTerm2 の使用感に寄せた割り当て
+split_vertical = "cmd+d"        # 垂直分割 (iTerm2: Cmd+D)
+split_horizontal = "cmd+shift+d" # 水平分割 (iTerm2: Cmd+Shift+D)
+close_pane = "cmd+w"            # pane close (iTerm2: Cmd+W)
+new_tab = "cmd+t"                # 新規タブ (iTerm2: Cmd+T)
+next_tab = "cmd+alt+right"       # 次のタブ (iTerm2: Cmd+Option+→)
+previous_tab = "cmd+alt+left"    # 前のタブ (iTerm2: Cmd+Option+←)
+zoom = "cmd+enter"                # pane 最大化トグル (iTerm2: Cmd+Enter)
+
+
+# Cmd+1〜9 で「N番目のpane」にフォーカス (iTerm2: Cmd+1〜9)。
+# keys.indexed.agents は agent 検知済み pane にしかジャンプできないため、
+# agent の起動有無に依らず position で focus する local.focus-pane プラグインを使う。
+# (herdr公式CLIにはposition指定focusが無いため、herdr api schema にある
+#  生のsocket API `pane.focus` + pane_id を叩く plugin action 経由)
+[[keys.command]]
+key = "cmd+1"
+type = "plugin_action"
+command = "local.focus-pane.focus-1"
+
+[[keys.command]]
+key = "cmd+2"
+type = "plugin_action"
+command = "local.focus-pane.focus-2"
+
+[[keys.command]]
+key = "cmd+3"
+type = "plugin_action"
+command = "local.focus-pane.focus-3"
+
+[[keys.command]]
+key = "cmd+4"
+type = "plugin_action"
+command = "local.focus-pane.focus-4"
+
+[[keys.command]]
+key = "cmd+5"
+type = "plugin_action"
+command = "local.focus-pane.focus-5"
+
+[[keys.command]]
+key = "cmd+6"
+type = "plugin_action"
+command = "local.focus-pane.focus-6"
+
+[[keys.command]]
+key = "cmd+7"
+type = "plugin_action"
+command = "local.focus-pane.focus-7"
+
+[[keys.command]]
+key = "cmd+8"
+type = "plugin_action"
+command = "local.focus-pane.focus-8"
+
+[[keys.command]]
+key = "cmd+9"
+type = "plugin_action"
+command = "local.focus-pane.focus-9"
+
+# Cmd+Alt+I で broadcast mode をtoggle。
+# 現在tab内の全pane(自分自身のoverlayを除く)にキー入力を1byteずつ中継する。
+# local.broadcast プラグイン参照。
+[[keys.command]]
+key = "cmd+alt+i"
+type = "plugin_action"
+command = "local.broadcast.toggle"
+
 [experimental]
 switch_ascii_input_source_in_prefix = true
 reveal_hidden_cursor_for_cjk_ime = true
