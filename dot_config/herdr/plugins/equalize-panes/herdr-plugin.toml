@@ -1,0 +1,30 @@
+id = "local.equalize-panes"
+name = "Equalize Panes"
+version = "0.1.0"
+min_herdr_version = "0.7.0"
+description = "現在のtab内の全paneのsplit木構造を維持したまま、各splitのratioを均等値に再計算して見やすく整列させる"
+platforms = ["macos"]
+
+[[actions]]
+id = "equalize"
+title = "Equalize panes in current tab"
+contexts = ["tab"]
+command = ["bash", "equalize.sh"]
+
+[[actions]]
+id = "split-right"
+title = "Split right and equalize panes"
+contexts = ["tab"]
+command = ["bash", "split-right.sh"]
+
+[[actions]]
+id = "split-down"
+title = "Split down and equalize panes"
+contexts = ["tab"]
+command = ["bash", "split-down.sh"]
+
+[[actions]]
+id = "close-pane"
+title = "Close pane and equalize remaining panes"
+contexts = ["tab"]
+command = ["bash", "close-pane.sh"]

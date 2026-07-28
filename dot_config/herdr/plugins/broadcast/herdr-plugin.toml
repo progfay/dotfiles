@@ -1,0 +1,18 @@
+id = "local.broadcast"
+name = "Broadcast Input"
+version = "0.1.0"
+min_herdr_version = "0.7.0"
+description = "現在のtab内の全paneにキー入力を同時中継するbroadcastモード"
+platforms = ["macos"]
+
+[[actions]]
+id = "toggle"
+title = "Toggle broadcast mode"
+contexts = ["tab"]
+command = ["bash", "toggle.sh"]
+
+[[panes]]
+id = "relay"
+title = "Broadcast"
+placement = "split"
+command = ["bash", "relay.sh"]

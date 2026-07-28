@@ -108,6 +108,20 @@ herdr pane split --current --direction right --no-focus
 
 Replace `right` with `down` when the layout calls for it.
 
+When the tab already holds sibling panes, keep every pane equal-sized after the split. Herdr's built-in CLI has no dedicated equalize command, but check whether the local `equalize-panes` plugin is installed:
+
+```bash
+herdr plugin action list --plugin local.equalize-panes
+```
+
+If its `equalize` action is listed, split as above, then invoke it to re-balance every pane in the tab:
+
+```bash
+herdr plugin action invoke equalize --plugin local.equalize-panes
+```
+
+If the plugin is not installed, pass `--ratio` equal to the new pane's fair share (`1 / (sibling_count + 1)`) instead of relying on the default, then compare `herdr pane layout` across siblings and correct any pane that drifted with `herdr pane resize --direction <dir> --amount FLOAT`.
+
 Read `result.pane.pane_id` from the JSON response. Give the pane a useful label, then start the requested agent by running only its normal executable so its interactive TUI opens:
 
 ```bash
@@ -162,6 +176,8 @@ Split the calling pane using the same geometry rule without moving the user's fo
 ```bash
 herdr pane split --current --direction right --no-focus
 ```
+
+Keep sibling panes equal-sized the same way: prefer `herdr plugin action invoke equalize --plugin local.equalize-panes` when that plugin is installed, otherwise fall back to an explicit `--ratio` and `herdr pane resize` (see "Start agents interactively").
 
 Read the new `pane_id` from the JSON response, then run and inspect the command:
 

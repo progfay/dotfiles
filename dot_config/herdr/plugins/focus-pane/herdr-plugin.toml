@@ -1,0 +1,60 @@
+id = "local.focus-pane"
+name = "Focus Pane by Index"
+version = "0.1.0"
+min_herdr_version = "0.7.0"
+description = "現在のtab内でN番目(作成順)のpaneに、agentの起動有無に関係なくフォーカスを移す"
+platforms = ["macos"]
+
+[[actions]]
+id = "focus-1"
+title = "Focus pane 1"
+contexts = ["tab"]
+command = ["bash", "focus-pane.sh", "1"]
+
+[[actions]]
+id = "focus-2"
+title = "Focus pane 2"
+contexts = ["tab"]
+command = ["bash", "focus-pane.sh", "2"]
+
+[[actions]]
+id = "focus-3"
+title = "Focus pane 3"
+contexts = ["tab"]
+command = ["bash", "focus-pane.sh", "3"]
+
+[[actions]]
+id = "focus-4"
+title = "Focus pane 4"
+contexts = ["tab"]
+command = ["bash", "focus-pane.sh", "4"]
+
+[[actions]]
+id = "focus-5"
+title = "Focus pane 5"
+contexts = ["tab"]
+command = ["bash", "focus-pane.sh", "5"]
+
+[[actions]]
+id = "focus-6"
+title = "Focus pane 6"
+contexts = ["tab"]
+command = ["bash", "focus-pane.sh", "6"]
+
+[[actions]]
+id = "focus-7"
+title = "Focus pane 7"
+contexts = ["tab"]
+command = ["bash", "focus-pane.sh", "7"]
+
+[[actions]]
+id = "focus-8"
+title = "Focus pane 8"
+contexts = ["tab"]
+command = ["bash", "focus-pane.sh", "8"]
+
+[[actions]]
+id = "focus-9"
+title = "Focus pane 9"
+contexts = ["tab"]
+command = ["bash", "focus-pane.sh", "9"]

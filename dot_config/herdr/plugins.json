@@ -1,0 +1,197 @@
+[
+  {
+    "plugin_id": "local.broadcast",
+    "name": "Broadcast Input",
+    "version": "0.1.0",
+    "min_herdr_version": "0.7.0",
+    "description": "現在のtab内の全paneにキー入力を同時中継するbroadcastモード",
+    "manifest_path": "/Users/progfay/.config/herdr/plugins/broadcast/herdr-plugin.toml",
+    "plugin_root": "/Users/progfay/.config/herdr/plugins/broadcast",
+    "enabled": true,
+    "platforms": [
+      "macos"
+    ],
+    "actions": [
+      {
+        "id": "toggle",
+        "title": "Toggle broadcast mode",
+        "contexts": [
+          "tab"
+        ],
+        "command": [
+          "bash",
+          "toggle.sh"
+        ]
+      }
+    ],
+    "panes": [
+      {
+        "id": "relay",
+        "title": "Broadcast",
+        "placement": "split",
+        "command": [
+          "bash",
+          "relay.sh"
+        ]
+      }
+    ],
+    "source": {
+      "kind": "local"
+    }
+  },
+  {
+    "plugin_id": "local.equalize-panes",
+    "name": "Equalize Panes",
+    "version": "0.1.0",
+    "min_herdr_version": "0.7.0",
+    "description": "現在のtab内の全paneのsplit木構造を維持したまま、各splitのratioを均等値に再計算して見やすく整列させる",
+    "manifest_path": "/Users/progfay/.config/herdr/plugins/equalize-panes/herdr-plugin.toml",
+    "plugin_root": "/Users/progfay/.config/herdr/plugins/equalize-panes",
+    "enabled": true,
+    "platforms": [
+      "macos"
+    ],
+    "actions": [
+      {
+        "id": "equalize",
+        "title": "Equalize panes in current tab",
+        "contexts": [
+          "tab"
+        ],
+        "command": [
+          "bash",
+          "equalize.sh"
+        ]
+      }
+    ],
+    "source": {
+      "kind": "local"
+    }
+  },
+  {
+    "plugin_id": "local.focus-pane",
+    "name": "Focus Pane by Index",
+    "version": "0.1.0",
+    "min_herdr_version": "0.7.0",
+    "description": "現在のtab内でN番目(作成順)のpaneに、agentの起動有無に関係なくフォーカスを移す",
+    "manifest_path": "/Users/progfay/.config/herdr/plugins/focus-pane/herdr-plugin.toml",
+    "plugin_root": "/Users/progfay/.config/herdr/plugins/focus-pane",
+    "enabled": true,
+    "platforms": [
+      "macos"
+    ],
+    "actions": [
+      {
+        "id": "focus-1",
+        "title": "Focus pane 1",
+        "contexts": [
+          "tab"
+        ],
+        "command": [
+          "bash",
+          "focus-pane.sh",
+          "1"
+        ]
+      },
+      {
+        "id": "focus-2",
+        "title": "Focus pane 2",
+        "contexts": [
+          "tab"
+        ],
+        "command": [
+          "bash",
+          "focus-pane.sh",
+          "2"
+        ]
+      },
+      {
+        "id": "focus-3",
+        "title": "Focus pane 3",
+        "contexts": [
+          "tab"
+        ],
+        "command": [
+          "bash",
+          "focus-pane.sh",
+          "3"
+        ]
+      },
+      {
+        "id": "focus-4",
+        "title": "Focus pane 4",
+        "contexts": [
+          "tab"
+        ],
+        "command": [
+          "bash",
+          "focus-pane.sh",
+          "4"
+        ]
+      },
+      {
+        "id": "focus-5",
+        "title": "Focus pane 5",
+        "contexts": [
+          "tab"
+        ],
+        "command": [
+          "bash",
+          "focus-pane.sh",
+          "5"
+        ]
+      },
+      {
+        "id": "focus-6",
+        "title": "Focus pane 6",
+        "contexts": [
+          "tab"
+        ],
+        "command": [
+          "bash",
+          "focus-pane.sh",
+          "6"
+        ]
+      },
+      {
+        "id": "focus-7",
+        "title": "Focus pane 7",
+        "contexts": [
+          "tab"
+        ],
+        "command": [
+          "bash",
+          "focus-pane.sh",
+          "7"
+        ]
+      },
+      {
+        "id": "focus-8",
+        "title": "Focus pane 8",
+        "contexts": [
+          "tab"
+        ],
+        "command": [
+          "bash",
+          "focus-pane.sh",
+          "8"
+        ]
+      },
+      {
+        "id": "focus-9",
+        "title": "Focus pane 9",
+        "contexts": [
+          "tab"
+        ],
+        "command": [
+          "bash",
+          "focus-pane.sh",
+          "9"
+        ]
+      }
+    ],
+    "source": {
+      "kind": "local"
+    }
+  }
+]

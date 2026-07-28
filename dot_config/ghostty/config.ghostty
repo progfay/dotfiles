@@ -19,6 +19,8 @@ macos-option-as-alt = true
 keybind = super+w=unbind
 # herdr: new_tab (Cmd+T) <- Ghostty既定: new_tab(名前は同じだが herdr 側の tab 実装に渡す必要があるため解除)
 keybind = super+t=unbind
+# herdr: new_workspace (Cmd+N) <- Ghostty既定: new_window
+keybind = super+n=unbind
 # herdr: split_vertical (Cmd+D) <- Ghostty既定: new_split:right
 keybind = super+d=unbind
 # herdr: split_horizontal (Cmd+Shift+D) <- Ghostty既定: new_split:down
@@ -29,6 +31,10 @@ keybind = super+enter=unbind
 keybind = super+alt+arrow_left=unbind
 # herdr: next_tab (Cmd+Option+Right) <- Ghostty既定: goto_split:right
 keybind = super+alt+arrow_right=unbind
+# herdr: navigate_workspace_up (Cmd+Option+Up) <- Ghostty既定: goto_split:up
+keybind = super+alt+arrow_up=unbind
+# herdr: navigate_workspace_down (Cmd+Option+Down) <- Ghostty既定: goto_split:down
+keybind = super+alt+arrow_down=unbind
 # herdr: broadcast toggle (Cmd+Option+I) <- Ghostty既定: inspector:toggle
 keybind = super+alt+i=unbind
 
