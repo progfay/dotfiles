@@ -1,13 +1,57 @@
 {
-  "permissions": {
-    "deny": [
-      "Bash(sudo:*)",
-      "Bash(su:*)",
-      "Bash(ssh:*)",
-      "Bash(scp:*)",
-      "Bash(rsync:*)",
-      "Edit(.ssh/*)"
+  "agentPushNotifEnabled": true,
+  "awaySummaryEnabled": false,
+  "editorMode": "normal",
+  "effortLevel": "high",
+  "hooks": {
+    "Notification": [
+      {
+        "hooks": [
+          {
+            "command": "open -g 'raycast://confetti?emojis=🔔'",
+            "type": "command"
+          }
+        ],
+        "matcher": "permission_prompt|idle_prompt"
+      }
     ],
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "command": "bash '~/.claude/hooks/herdr-agent-state.sh' session",
+            "timeout": 10,
+            "type": "command"
+          }
+        ],
+        "matcher": "*"
+      },
+      {
+        "hooks": [
+          {
+            "command": "bash '/Users/progfay/.claude/hooks/herdr-agent-state.sh' session",
+            "timeout": 10,
+            "type": "command"
+          }
+        ],
+        "matcher": "*"
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "command": "open -g 'raycast://confetti?emojis=✅'",
+            "type": "command"
+          }
+        ]
+      }
+    ]
+  },
+  "inputNeededNotifEnabled": true,
+  "language": "Japanese",
+  "model": "claude-sonnet-5",
+  "permissions": {
     "ask": [
       "Bash(npm i:*)",
       "Bash(npm install:*)",
@@ -15,51 +59,17 @@
       "Bash(pnpm install:*)",
       "Bash(gh api * --method POST *)"
     ],
-    "defaultMode": "auto"
-  },
-  "model": "claude-sonnet-5",
-  "hooks": {
-    "Notification": [
-      {
-        "matcher": "permission_prompt|idle_prompt",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "open -g 'raycast://confetti?emojis=🔔'"
-          }
-        ]
-      }
-    ],
-    "SessionStart": [
-      {
-        "matcher": "*",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "bash '~/.claude/hooks/herdr-agent-state.sh' session",
-            "timeout": 10
-          }
-        ]
-      }
-    ],
-    "Stop": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "open -g 'raycast://confetti?emojis=✅'"
-          }
-        ]
-      }
+    "defaultMode": "auto",
+    "deny": [
+      "Bash(sudo:*)",
+      "Bash(su:*)",
+      "Bash(ssh:*)",
+      "Bash(scp:*)",
+      "Bash(rsync:*)",
+      "Edit(.ssh/*)"
     ]
   },
-  "language": "Japanese",
-  "effortLevel": "high",
-  "awaySummaryEnabled": false,
-  "tui": "default",
   "theme": "auto",
-  "editorMode": "normal",
-  "inputNeededNotifEnabled": true,
-  "agentPushNotifEnabled": true,
+  "tui": "default",
   "useAutoModeDuringPlan": true
 }

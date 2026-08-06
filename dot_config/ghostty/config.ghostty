@@ -1,6 +1,6 @@
 theme = dracula-pro
 
-font-family = "FiraCode Nerd Font"
+font-family = "Fira Code"
 font-family = "Hiragino Sans W4"
 font-size = 16
 font-style-italic = false
