@@ -8,7 +8,7 @@ font-style-italic = false
 window-padding-x = 10
 window-padding-y = 10
 window-padding-balance = true
-macos-window-buttons = hidden
+macos-titlebar-style = hidden
 macos-option-as-alt = true
 
 # herdr (https://herdr.dev/) にキーを渡すため、Ghostty純正のバインドで
