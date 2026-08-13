@@ -53,19 +53,19 @@
   "model": "claude-sonnet-5",
   "permissions": {
     "ask": [
-      "Bash(npm i:*)",
-      "Bash(npm install:*)",
-      "Bash(pnpm i:*)",
-      "Bash(pnpm install:*)",
+      "Bash(npm i *)",
+      "Bash(npm install *)",
+      "Bash(pnpm i *)",
+      "Bash(pnpm install *)",
       "Bash(gh api * --method POST *)"
     ],
     "defaultMode": "auto",
     "deny": [
-      "Bash(sudo:*)",
-      "Bash(su:*)",
-      "Bash(ssh:*)",
-      "Bash(scp:*)",
-      "Bash(rsync:*)",
+      "Bash(sudo *)",
+      "Bash(su *)",
+      "Bash(ssh *)",
+      "Bash(scp *)",
+      "Bash(rsync *)",
       "Edit(.ssh/*)"
     ]
   },
