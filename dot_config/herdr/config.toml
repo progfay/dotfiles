@@ -12,6 +12,9 @@ agent_panel_sort = "spaces"
 [ui.toast]
 delivery = "system"
 
+[ui.toast.clipboard]
+position = "top-right"
+
 [keys]
 # iTerm2 の使用感に寄せた割り当て
 # split_vertical / split_horizontal / close_pane はビルトインの直接割り当て。
