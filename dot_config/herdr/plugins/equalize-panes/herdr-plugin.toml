@@ -11,20 +11,16 @@ title = "Equalize panes in current tab"
 contexts = ["tab"]
 command = ["bash", "equalize.sh"]
 
-[[actions]]
-id = "split-right"
-title = "Split right and equalize panes"
-contexts = ["tab"]
-command = ["bash", "split-right.sh"]
+# herdr本来のsplit/close keybind、CLI、シェル内`exit`等、経路を問わずpane数が
+# 増減した場合でも自動的にequalizeが走るようにするイベントフック。
+[[events]]
+on = "pane.closed"
+command = ["bash", "equalize.sh"]
 
-[[actions]]
-id = "split-down"
-title = "Split down and equalize panes"
-contexts = ["tab"]
-command = ["bash", "split-down.sh"]
+[[events]]
+on = "pane.created"
+command = ["bash", "equalize.sh"]
 
-[[actions]]
-id = "close-pane"
-title = "Close pane and equalize remaining panes"
-contexts = ["tab"]
-command = ["bash", "close-pane.sh"]
+[[events]]
+on = "pane.exited"
+command = ["bash", "equalize.sh"]

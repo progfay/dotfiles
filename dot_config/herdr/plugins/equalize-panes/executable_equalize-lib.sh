@@ -19,6 +19,18 @@ equalize_current_tab() {
   sock="${HERDR_SOCKET_PATH:-$HOME/.config/herdr/herdr.sock}"
   current_tab_id="${1:-}"
 
+  # 引数省略時、まずイベントフック実行context由来の$HERDR_TAB_IDを優先する。
+  # close等でpaneが消えた直後は`herdr pane current`(UIフォーカスpane解決)が
+  # 遷移中でpane_not_foundになるレースコンディションがあるため。
+  # pane.closedイベントはpaneが既に消えた後の通知でtab_idを含まないため
+  # $HERDR_TAB_IDも空になる。その場合は$HERDR_WORKSPACE_IDのactive_tab_id
+  # (=そのworkspaceで現在表示中のtab)で代用する。
+  if [ -z "$current_tab_id" ]; then
+    current_tab_id="${HERDR_TAB_ID:-}"
+  fi
+  if [ -z "$current_tab_id" ] && [ -n "${HERDR_WORKSPACE_ID:-}" ]; then
+    current_tab_id="$(herdr workspace get "$HERDR_WORKSPACE_ID" | jq -r '.result.workspace.active_tab_id // empty')"
+  fi
   if [ -z "$current_tab_id" ]; then
     current_tab_id="$(herdr pane current | jq -r '.result.pane.tab_id')"
   fi

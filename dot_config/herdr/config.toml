@@ -14,9 +14,10 @@ delivery = "system"
 
 [keys]
 # iTerm2 の使用感に寄せた割り当て
-# split_vertical / split_horizontal / close_pane はビルトインではなく、
-# 実行後に local.equalize-panes で自動整列する下の [[keys.command]] 側で
-# cmd+d / cmd+shift+d / cmd+w に割り当てている。
+# split_vertical / split_horizontal / close_pane はビルトインの直接割り当て。
+split_vertical = "cmd+d"         # 垂直分割 = 左右に並ぶ (iTerm2: Cmd+D)
+split_horizontal = "cmd+shift+d" # 水平分割 = 上下に並ぶ (iTerm2: Cmd+Shift+D)
+close_pane = "cmd+w"             # pane close (iTerm2: Cmd+W)
 new_tab = "cmd+t"                # 新規タブ (iTerm2: Cmd+T)
 next_tab = "cmd+alt+right"       # 次のタブ (iTerm2: Cmd+Option+→)
 previous_tab = "cmd+alt+left"    # 前のタブ (iTerm2: Cmd+Option+←)
@@ -83,32 +84,6 @@ command = "local.focus-pane.focus-9"
 key = "cmd+alt+i"
 type = "plugin_action"
 command = "local.broadcast.toggle"
-
-# Cmd+Alt+E で現在tab内の全paneのsplit ratioを均等に再計算し整列させる。
-# local.equalize-panes プラグイン参照。
-[[keys.command]]
-key = "cmd+alt+e"
-type = "plugin_action"
-command = "local.equalize-panes.equalize"
-
-# Cmd+D / Cmd+Shift+D (iTerm2の垂直/水平分割相当) を、split実行後に
-# 自動でequalizeまで行うカスタムアクションに置き換え。
-[[keys.command]]
-key = "cmd+d"
-type = "plugin_action"
-command = "local.equalize-panes.split-right"
-
-[[keys.command]]
-key = "cmd+shift+d"
-type = "plugin_action"
-command = "local.equalize-panes.split-down"
-
-# Cmd+W (iTerm2のpane close相当) を、close実行後に自動でequalizeまで
-# 行うカスタムアクションに置き換え。
-[[keys.command]]
-key = "cmd+w"
-type = "plugin_action"
-command = "local.equalize-panes.close-pane"
 
 # Cmd+Shift+N (iTerm2のCmd+N相当) で新しいOSレベルのGhostttyウィンドウを開き、
 # 現在の永続セッションに別クライアントとしてアタッチする (tmux attach 相当)。
