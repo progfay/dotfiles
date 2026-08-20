@@ -52,7 +52,7 @@ broadcast() {
   local data="$1"
   local pane
   for pane in $targets; do
-    herdr pane send-text "$pane" "$data" >/dev/null 2>&1
+    "$HERDR_BIN_PATH" pane send-text "$pane" "$data" >/dev/null 2>&1
   done
 }
 

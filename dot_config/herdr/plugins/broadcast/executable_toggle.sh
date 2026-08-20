@@ -17,16 +17,16 @@ if [ -f "$active_file" ]; then
     kill -TERM "$(cat "$pid_file")" 2>/dev/null || true
   fi
   if [ -f "$relay_pane_file" ]; then
-    herdr plugin pane close "$(cat "$relay_pane_file")" >/dev/null 2>&1 || true
+    "$HERDR_BIN_PATH" plugin pane close "$(cat "$relay_pane_file")" >/dev/null 2>&1 || true
   fi
   rm -f "$active_file" "$pid_file" "$relay_pane_file"
   exit 0
 fi
 
-current_tab_id="$(herdr pane current | jq -r '.result.pane.tab_id')"
-current_pane_id="$(herdr pane current | jq -r '.result.pane.pane_id')"
+current_tab_id="$("$HERDR_BIN_PATH" pane current | jq -r '.result.pane.tab_id')"
+current_pane_id="$("$HERDR_BIN_PATH" pane current | jq -r '.result.pane.pane_id')"
 
-target_pane_ids="$(herdr pane list | jq -c --arg tab "$current_tab_id" '
+target_pane_ids="$("$HERDR_BIN_PATH" pane list | jq -c --arg tab "$current_tab_id" '
   [.result.panes[] | select(.tab_id == $tab) | .pane_id]
 ')"
 
@@ -35,12 +35,12 @@ target_pane_ids="$(herdr pane list | jq -c --arg tab "$current_tab_id" '
 
 jq -n --argjson targets "$target_pane_ids" '{target_pane_ids: $targets}' > "$targets_file"
 
-open_result="$(herdr plugin pane open --plugin local.broadcast --entrypoint relay \
+open_result="$("$HERDR_BIN_PATH" plugin pane open --plugin local.broadcast --entrypoint relay \
   --placement split --direction down --target-pane "$current_pane_id" --focus)"
 relay_pane_id="$(printf '%s' "$open_result" | jq -r '.result.plugin_pane.pane.pane_id')"
 
 # 他のpaneを隠さないよう、relay paneを最小サイズまで縮める
-herdr pane resize --pane "$relay_pane_id" --direction down --amount 1.0 >/dev/null 2>&1 || true
+"$HERDR_BIN_PATH" pane resize --pane "$relay_pane_id" --direction down --amount 1.0 >/dev/null 2>&1 || true
 
 printf '%s' "$relay_pane_id" > "$relay_pane_file"
 touch "$active_file"
