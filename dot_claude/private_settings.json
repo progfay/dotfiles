@@ -1,55 +1,5 @@
 {
-  "agentPushNotifEnabled": true,
-  "awaySummaryEnabled": false,
-  "editorMode": "normal",
-  "effortLevel": "high",
-  "hooks": {
-    "Notification": [
-      {
-        "hooks": [
-          {
-            "command": "open -g 'raycast://confetti?emojis=🔔'",
-            "type": "command"
-          }
-        ],
-        "matcher": "permission_prompt|idle_prompt"
-      }
-    ],
-    "SessionStart": [
-      {
-        "hooks": [
-          {
-            "command": "bash ~/.claude/hooks/herdr-agent-state.sh session",
-            "timeout": 10,
-            "type": "command"
-          }
-        ],
-        "matcher": "*"
-      }
-    ],
-    "Stop": [
-      {
-        "hooks": [
-          {
-            "command": "open -g 'raycast://confetti?emojis=✅'",
-            "type": "command"
-          }
-        ]
-      }
-    ]
-  },
-  "inputNeededNotifEnabled": true,
-  "language": "Japanese",
-  "model": "claude-sonnet-5",
   "permissions": {
-    "ask": [
-      "Bash(npm i *)",
-      "Bash(npm install *)",
-      "Bash(pnpm i *)",
-      "Bash(pnpm install *)",
-      "Bash(gh api * --method POST *)"
-    ],
-    "defaultMode": "auto",
     "deny": [
       "Bash(sudo *)",
       "Bash(su *)",
@@ -57,9 +7,74 @@
       "Bash(scp *)",
       "Bash(rsync *)",
       "Edit(.ssh/*)"
+    ],
+    "ask": [
+      "Bash(npm i *)",
+      "Bash(npm install *)",
+      "Bash(pnpm i *)",
+      "Bash(pnpm install *)",
+      "Bash(gh api * --method POST *)"
+    ],
+    "defaultMode": "auto"
+  },
+  "model": "claude-sonnet-5",
+  "hooks": {
+    "Notification": [
+      {
+        "matcher": "permission_prompt|idle_prompt",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "open -g 'raycast://confetti?emojis=🔔'"
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash ~/.claude/hooks/herdr-agent-state.sh session",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "open -g 'raycast://confetti?emojis=✅'"
+          }
+        ]
+      }
     ]
   },
-  "theme": "auto",
+  "extraKnownMarketplaces": {
+    "ponytail": {
+      "source": {
+        "source": "github",
+        "repo": "DietrichGebert/ponytail",
+        "ref": "v4.9.0"
+      }
+    }
+  },
+  "language": "Japanese",
+  "effortLevel": "high",
+  "awaySummaryEnabled": false,
   "tui": "default",
-  "useAutoModeDuringPlan": true
+  "theme": "auto",
+  "editorMode": "normal",
+  "inputNeededNotifEnabled": true,
+  "agentPushNotifEnabled": true,
+  "useAutoModeDuringPlan": true,
+  "enabledPlugins": {
+    "ponytail@ponytail": true
+  },
+  "env": {
+    "PONYTAIL_DEFAULT_MODE": "full"
+  }
 }
