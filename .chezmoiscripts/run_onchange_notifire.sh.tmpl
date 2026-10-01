@@ -1,0 +1,9 @@
+#!/bin/sh
+set -eu
+
+# https://github.com/progfay/notifire
+# {{ output "git" "ls-remote" "https://github.com/progfay/notifire.git" "HEAD" | trim }}
+tmp="$(mktemp -d)"
+trap 'rm -rf "$tmp"' EXIT
+git clone --depth 1 https://github.com/progfay/notifire.git "$tmp"
+"$tmp/build.sh" "$HOME/.local/bin/notifire"

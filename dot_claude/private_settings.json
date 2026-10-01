@@ -30,7 +30,8 @@
         "hooks": [
           {
             "type": "command",
-            "command": "open -g 'raycast://confetti?emojis=🔔'"
+            "command": "~/.local/bin/notifire 🔔",
+            "async": true
           }
         ]
       }
@@ -52,7 +53,8 @@
         "hooks": [
           {
             "type": "command",
-            "command": "open -g 'raycast://confetti?emojis=✅'"
+            "command": "~/.local/bin/notifire ✅",
+            "async": true
           }
         ]
       }
