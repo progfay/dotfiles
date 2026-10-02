@@ -1,0 +1,10 @@
+#!/bin/sh
+set -eu
+
+# System shortcuts (Spotlight, Mission Control, Screenshots, ...)
+# Update the snapshot: chezmoi re-add ~/Library/Preferences/com.apple.symbolichotkeys.plist && plutil -convert xml1 private_Library/private_Preferences/private_com.apple.symbolichotkeys.plist
+# symbolichotkeys hash: {{ include "private_Library/private_Preferences/private_com.apple.symbolichotkeys.plist" | sha256sum }}
+defaults delete com.apple.symbolichotkeys 2>/dev/null || true
+defaults import com.apple.symbolichotkeys "{{ .chezmoi.sourceDir }}/private_Library/private_Preferences/private_com.apple.symbolichotkeys.plist"
+
+/System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u

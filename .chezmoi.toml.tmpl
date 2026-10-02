@@ -6,3 +6,8 @@
     name = {{ $name | quote }}
     email = {{ $email | quote }}
     signingKey = {{ $signingKey | quote }}
+
+[[textconv]]
+    pattern = "**/*.plist"
+    command = "plutil"
+    args = ["-convert", "xml1", "-o", "-", "-"]
