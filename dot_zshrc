@@ -11,7 +11,6 @@ export VISUAL=vim
 export PAGER=less
 export LESS='-iMR'
 
-
 export HISTSIZE=1000
 export SAVEHIST=100000
 
@@ -19,7 +18,6 @@ export CLICOLOR=true
 export GPG_TTY=$(tty)
 export LSCOLORS='gxfxxxxxcxxxxxxxxxxxxx'
 export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=36;01:cd=33;01:su=31;40;07:sg=36;40;07:tw=32;40;07:ow=33;40;07:'
-
 
 function up() {
     if [ $# -eq 0 ]; then
@@ -50,8 +48,6 @@ setopt transient_rprompt
 
 bindkey -e
 
-# Homebrew
-eval "$(/opt/homebrew/bin/brew shellenv)"
 
 fpath=(~/.zsh/completion "$(brew --prefix)/share/zsh/site-functions" $fpath)
 autoload -Uz compinit
